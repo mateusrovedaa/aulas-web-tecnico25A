@@ -1,0 +1,27 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #0530b3;
+}
+
+a {
+    text-decoration: none;
+    color: #FFFFFF;
+    font-size: 50px;
+}
+
+.link-verde {
+    color: green;
+    font-size: 15px;
+}
+
+.contato {
+    background-color: aqua;
+}
+
+.logo  {
+    width: 150px;
+}
