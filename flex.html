@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Demo</title>
+    <style>
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            border: 2px solid #2b2a2a;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            background-color: rgb(38, 180, 227);
+            line-height: 100px;
+            text-align: center;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .center {
+            justify-content: center;
+            align-items: center;
+        }
+
+        .space-between {
+            justify-content: space-between;
+        }
+
+        .space-around {
+            justify-content: space-around;
+        }
+
+        .wrap {
+            flex-wrap: wrap;
+        }
+
+        .column {
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Entendendo o Flexbox</h1>
+
+    <h2>Sem Flexbox</h2>
+    <div class="container">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+    </div>
+
+    <h2>Flexbox - Centralizado</h2>
+    <div class="container flex center">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+        <div class="box">5</div>
+        <div class="box">5</div>
+        <div class="box">5</div>
+        <div class="box">5</div>
+        <div class="box">5</div>
+        <div class="box">5</div>
+        <div class="box">5</div>
+        <div class="box">5</div>
+    </div>
+
+    <h2>Flexbox - Space Between</h2>
+    <div class="container flex space-between">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+    </div>
+
+    <h2>Flexbox - Space Around</h2>
+    <div class="container flex space-around">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+    </div>
+
+    <h2>Flexbox - Wrap</h2>
+    <div class="container flex space-between wrap">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+        <div class="box">5</div>
+        <div class="box">6</div>
+        <div class="box">7</div>
+        <div class="box">8</div>
+        <div class="box">9</div>
+        <div class="box">10</div>
+        <div class="box">11</div>
+        <div class="box">12</div>
+        <div class="box">13</div>
+        <div class="box">14</div>
+        <div class="box">15</div>
+        <div class="box">16</div>
+        <div class="box">17</div>
+    </div>
+
+    <h2>Flexbox - Coluna</h2>
+    <div class="container flex column">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+    </div>
+</body>
+
+</html>

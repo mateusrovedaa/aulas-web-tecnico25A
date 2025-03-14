@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Exemplo</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            padding: 20px 150px;
+        }
+
+        header img {
+            height: 50px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+
+        .gallery {
+            display: flex;
+            justify-content: space-around;
+            padding: 100px;
+            background: #666;
+            flex-wrap: wrap;
+            gap: 90px;
+        }
+
+        .box {
+            width: 300px;
+            height: 300px;
+            background: #D9D9D9;
+        }
+
+        .info {
+            background: #6a8df5;
+            color: white;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .text-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .text-container div {
+            max-width: 400px;
+        }
+
+        footer {
+            background: black;
+            color: white;
+            text-align: center;
+            padding: 20px 150px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer img {
+            height: 50px;
+        }
+
+        .social-icons {
+            display: flex;
+        }
+
+        .social-icons span {
+            background: white;
+            color: black;
+            padding: 10px;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <img src="logo.png" alt="Logo">
+        <nav>
+            <ul>
+                <li><a href="#">Início</a></li>
+                <li><a href="#">Sobre</a></li>
+                <li><a href="#">Produtos</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="gallery">
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+        </section>
+        <section class="info">
+            <h2>Missão, visão e valores</h2>
+            <div class="text-container">
+                <div>
+                    <h3>Missão</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, quia dolorum? Eos eaque impedit aspernatur reiciendis corrupti qui? Odit perferendis repellat ea obcaecati numquam beatae laboriosam porro? Illum, quisquam soluta.</p>
+                </div>
+                <div>
+                    <h3>Valores</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed in, libero consequuntur molestias, hic reprehenderit, nobis accusamus ea blanditiis architecto omnis tempore quod aliquam illum numquam quos facilis aut earum.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <img src="logo.png" alt="Logo">
+        <p>Copyright</p>
+        <div class="social-icons">
+            <span>f</span>
+            <span>x</span>
+            <span>o</span>
+        </div>
+    </footer>
+</body>
+
+</html>
