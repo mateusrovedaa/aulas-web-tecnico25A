@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        console.log("Eu sou outro texto!");
+        //window.alert("Olá mundo");
+        function trocaTexto() {
+            document.getElementById('para').innerHTML = 'Oi, eu sou um texto modificado'
+        }
+    </script>
+
+    <p id="para">Oi eu sou um texto!</p>
+    <button onclick="trocaTexto()">CLIQUE ME</button>
+
+</body>
+
+</html>
