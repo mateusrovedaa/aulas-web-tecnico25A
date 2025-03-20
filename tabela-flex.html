@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela com Flexbox</title>
+    <style>
+        .table {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #ccc;
+            width: 60%;
+            margin: 20px auto;
+        }
+        .row {
+            display: flex;
+            border-bottom: 1px solid #ccc;
+        }
+        .cell {
+            flex: 1;
+            padding: 10px;
+            text-align: center;
+        }
+        .header {
+            background: #007bff;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="table">
+        <div class="row header">
+            <div class="cell">Nome</div>
+            <div class="cell">Idade</div>
+            <div class="cell">Cidade</div>
+        </div>
+        <div class="row">
+            <div class="cell">Ana</div>
+            <div class="cell">25</div>
+            <div class="cell">São Paulo</div>
+        </div>
+        <div class="row">
+            <div class="cell">Bruno</div>
+            <div class="cell">30</div>
+            <div class="cell">Rio de Janeiro</div>
+        </div>
+        <div class="row">
+            <div class="cell">Carlos</div>
+            <div class="cell">28</div>
+            <div class="cell">Belo Horizonte</div>
+        </div>
+    </div>
+</body>
+</html>
