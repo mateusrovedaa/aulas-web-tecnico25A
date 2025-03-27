@@ -1,0 +1,105 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+header {
+    background-color: #333333;
+    color: #ffffff;
+    padding: 20px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.perfil {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.perfil img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+}
+
+section {
+    padding: 20px;
+}
+
+.projeto {
+    border: 1px solid #cccccc;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.projeto:hover {
+    background-color: #0059FF;
+    color: #ffffff;
+}
+
+.ver-projeto {
+    text-decoration: none;
+    color: #000000;
+}
+
+.ver-projeto:hover {
+    color: #ffffff;
+}
+
+#habilidades ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+}
+
+#habilidades li {
+    background-color: #dddddd;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+#habilidades li:hover {
+    background-color: #0059FF;
+    color: #ffffff;
+    transform: scale(1.05);
+}
+
+form input, form textarea {
+    width: 100%;
+    margin: 5px 0;
+    padding: 8px;
+}
+
+.social a {
+    margin-right: 10px;
+}
+
+.avaliacao {
+    margin-top: 15px;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #0059FF;
+    color: #ffffff;
+    margin-top: 20px;
+}
