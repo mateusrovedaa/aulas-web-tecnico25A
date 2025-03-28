@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu com Collapsible</title>
+    <style>
+        body {
+            scroll-behavior: smooth;
+        }
+        .menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 200px;
+            background: #333;
+            color: white;
+            padding: 15px;
+        }
+        .menu a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            margin: 5px 0;
+        }
+        .collapsible {
+            background-color: #f1f1f1;
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+        }
+        .content {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="menu">
+        <a href="#section1" class="menu-link" data-target="section1">Seção 1</a>
+        <a href="#section2" class="menu-link" data-target="section2">Seção 2</a>
+        <a href="#section3" class="menu-link" data-target="section3">Seção 3</a>
+    </div>
+
+    <div style="margin-left:220px; padding:20px;">
+        <div id="section1">
+            <div class="collapsible">Seção 1</div>
+            <div class="content">
+                <p>Conteúdo da Seção 1</p>
+            </div>
+        </div>
+
+        <div id="section2">
+            <div class="collapsible">Seção 2</div>
+            <div class="content">
+                <p>Conteúdo da Seção 2</p>
+            </div>
+        </div>
+
+        <div id="section3">
+            <div class="collapsible">Seção 3</div>
+            <div class="content">
+                <p>Conteúdo da Seção 3</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.menu-link').forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault();
+                
+                const targetId = this.getAttribute('data-target');
+                const targetSection = document.getElementById(targetId);
+                
+                if (targetSection) {
+                    const collapsible = targetSection.querySelector('.collapsible');
+                    const content = targetSection.querySelector('.content');
+
+                    // Fecha todas as seções antes de abrir a clicada
+                    document.querySelectorAll('.content').forEach(c => c.style.display = 'none');
+
+                    // Abre a seção clicada
+                    content.style.display = 'block';
+                    
+                    // Rola até a seção
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
