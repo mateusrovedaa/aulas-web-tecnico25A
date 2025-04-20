@@ -1,0 +1,4 @@
+CREATE TABLE nomes (
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(100)
+);
