@@ -7,7 +7,6 @@ $port = '5432';
 
 $dsn = "pgsql:host=$host;port=$port;dbname=$dbname";
 $pdo = new PDO($dsn, $username, $password);
-$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nome = $_POST['nome'];
