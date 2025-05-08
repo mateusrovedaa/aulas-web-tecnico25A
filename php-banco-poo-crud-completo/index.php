@@ -49,8 +49,8 @@ $usuarios = $controlaUsuario->listar();
                         <td><?= $usuario['email'] ?></td>
                         <td><?= $usuario['idade'] ?></td>
                         <td>
-                            <a class="button" href="editar.php?id=<?= $usuario['id'] ?>">Editar</a>
-                            <a class="button delete" href="excluir.php?id=<?= $usuario['id'] ?>">Excluir</a>
+                            <a class="button" href="edita.php?id=<?= $usuario['id'] ?>">Editar</a>
+                            <a class="button delete" href="exclui.php?id=<?= $usuario['id'] ?>">Excluir</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
