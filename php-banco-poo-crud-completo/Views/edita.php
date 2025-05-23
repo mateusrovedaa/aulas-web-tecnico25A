@@ -1,5 +1,5 @@
 <?php
-include 'ControlaUsuario.php';
+include '../Controllers/ControlaUsuario.php';
 
 if (!isset($_GET['id'])) {
     die('ID do usuário não informado.');
@@ -21,7 +21,7 @@ if (!$usuario) {
 </head>
 <body>
     <h2>Editar Usuário</h2>
-    <form action="processaEdicao.php" method="post">
+    <form action="../Services/processaEdicao.php" method="post">
         <input type="hidden" name="id" value="<?= $usuario['id'] ?>">
         <label>Nome completo</label>
         <input type="text" name="nome" value="<?= $usuario['nome'] ?>" required>

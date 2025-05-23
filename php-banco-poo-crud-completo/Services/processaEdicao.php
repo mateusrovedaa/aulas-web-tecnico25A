@@ -1,6 +1,6 @@
 <?php
-include 'Usuario.php';
-include 'ControlaUsuario.php';
+include '../Models/Usuario.php';
+include '../Controllers/ControlaUsuario.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id'])) {
     $id = $_POST['id'];
@@ -14,6 +14,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id'])) {
 
     $controlaUsuario->atualizar($usuario);
 
-    header("Location: index.php");
+    header("Location: ../Views/index.php");
     exit;
 } 

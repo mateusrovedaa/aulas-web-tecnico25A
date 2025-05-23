@@ -1,5 +1,5 @@
 <?php
-require_once 'ControlaUsuario.php';
+require_once '../Controllers/ControlaUsuario.php';
 
 $controlaUsuario = new ControlaUsuario();
 $usuarios = $controlaUsuario->listar();
@@ -50,7 +50,7 @@ $usuarios = $controlaUsuario->listar();
                         <td><?= $usuario['idade'] ?></td>
                         <td>
                             <a class="button" href="edita.php?id=<?= $usuario['id'] ?>">Editar</a>
-                            <a class="button delete" href="exclui.php?id=<?= $usuario['id'] ?>">Excluir</a>
+                            <a class="button delete" href="../Services/exclui.php?id=<?= $usuario['id'] ?>">Excluir</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

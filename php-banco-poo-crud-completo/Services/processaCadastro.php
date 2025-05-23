@@ -1,6 +1,6 @@
 <?php
-include 'Usuario.php';
-include 'ControlaUsuario.php';
+include '../Models/Usuario.php';
+include '../Controllers/ControlaUsuario.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nome = $_POST['nome'];
@@ -12,5 +12,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $controlaUsuario->salvar($usuario);
 
-    header("Location: cadastra.html");
+    header("Location: ../Views/cadastra.html");
 }

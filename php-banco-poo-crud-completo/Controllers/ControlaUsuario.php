@@ -1,6 +1,6 @@
 <?php
 
-include 'Database.php';
+include '../Others/Database.php';
 
 class ControlaUsuario
 {
