@@ -1,0 +1,19 @@
+meta {
+  name: Edita usuario
+  type: http
+  seq: 4
+}
+
+put {
+  url: http://localhost:8000/usuarios/9
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "nome": "Mateus Editado 2",
+    "email": "mateus@teste.com",
+    "idade": 27
+  }
+}
