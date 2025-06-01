@@ -44,13 +44,13 @@ $usuarios = $controlaUsuario->listar();
             <tbody>
                 <?php foreach ($usuarios as $usuario): ?>
                     <tr>
-                        <td><?= $usuario['id'] ?></td>
-                        <td><?= $usuario['nome'] ?></td>
-                        <td><?= $usuario['email'] ?></td>
-                        <td><?= $usuario['idade'] ?></td>
+                        <td><?= $usuario->getId() ?></td>
+                        <td><?= $usuario->getNome() ?></td>
+                        <td><?= $usuario->getEmail() ?></td>
+                        <td><?= $usuario->getIdade() ?></td>
                         <td>
-                            <a class="button" href="edita.php?id=<?= $usuario['id'] ?>">Editar</a>
-                            <a class="button delete" href="../Services/exclui.php?id=<?= $usuario['id'] ?>">Excluir</a>
+                            <a class="button" href="edita.php?id=<?= $usuario->getId() ?>">Editar</a>
+                            <a class="button delete" href="../Services/exclui.php?id=<?= $usuario->getId() ?>">Excluir</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

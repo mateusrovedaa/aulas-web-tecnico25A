@@ -1,6 +1,7 @@
 <?php
 
 include '../Others/Database.php';
+require_once '../Models/Usuario.php';
 
 class ControlaUsuario
 {
@@ -31,7 +32,15 @@ class ControlaUsuario
         try {
             $sql = "SELECT * FROM $this->tabela";
             $stmt = $this->connection->query($sql);
-            $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            $usuarios = [];
+            foreach ($rows as $row) {
+                $u = new Usuario($row['nome'], $row['email'], $row['idade']);
+                $u->setId($row['id']);
+                $usuarios[] = $u;
+            }
+
             $this->db->closeConnection();
             return $usuarios;
         } catch (\Exception $e) {
@@ -57,9 +66,17 @@ class ControlaUsuario
             $sql = "SELECT * FROM $this->tabela WHERE id = ?";
             $stmt = $this->connection->prepare($sql);
             $stmt->execute([$id]);
-            $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if (!$row) {
+                $this->db->closeConnection();
+                return null;
+            }
+
+            $u = new Usuario($row['nome'], $row['email'], $row['idade']);
+            $u->setId($row['id']);
             $this->db->closeConnection();
-            return $usuario;
+            return $u;
         } catch (\Exception $e) {
             throw new \Exception("Erro ao buscar usuário: " . $e->getMessage());
         }

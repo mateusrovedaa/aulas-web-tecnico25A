@@ -22,13 +22,13 @@ if (!$usuario) {
 <body>
     <h2>Editar Usuário</h2>
     <form action="../Services/processaEdicao.php" method="post">
-        <input type="hidden" name="id" value="<?= $usuario['id'] ?>">
+        <input type="hidden" name="id" value="<?= $usuario->getId() ?>">
         <label>Nome completo</label>
-        <input type="text" name="nome" value="<?= $usuario['nome'] ?>" required>
+        <input type="text" name="nome" value="<?= $usuario->getNome() ?>" required>
         <label>Email</label>
-        <input type="email" name="email" value="<?= $usuario['email'] ?>" required>
+        <input type="email" name="email" value="<?= $usuario->getEmail() ?>" required>
         <label>Idade</label>
-        <input type="text" name="idade" value="<?= $usuario['idade'] ?>" required>
+        <input type="text" name="idade" value="<?= $usuario->getIdade() ?>" required>
 
         <button type="submit">Atualizar</button>
     </form>
