@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplos: Cookies, localStorage e Auth</title>
+</head>
+
+<body>
+    <h1>1. Cookies</h1>
+    <button id="btnSetCookie">Criar Cookie</button>
+    <button id="btnGetCookie">Ler Cookie</button>
+    <button id="btnDeleteCookie">Apagar Cookie</button>
+    <div id="cookieOutput"></div>
+
+    <hr>
+
+    <h1>2. localStorage</h1>
+    <button id="btnSaveLS">Salvar em localStorage</button>
+    <button id="btnGetLS">Ler de localStorage</button>
+    <button id="btnDeleteLS">Apagar do localStorage</button>
+    <div id="lsOutput"></div>
+
+    <hr>
+
+    <h1>3. Autenticação (simulada)</h1>
+    <div id="authSection">
+        <form id="loginForm">
+            <input id="username" placeholder="Usuário" required>
+            <input id="password" type="password" placeholder="Senha" required>
+            <button type="submit">Login</button>
+        </form>
+        <button id="logoutBtn" hidden>Logout</button>
+        <div id="authStatus"></div>
+    </div>
+
+    <script>
+        // ===== 1. Cookies =====
+        function setCookie(name, value, days) {
+            const expires = new Date(Date.now() + days * 864e5).toUTCString();
+            document.cookie = name + '=' + encodeURIComponent(value)
+                + '; expires=' + expires
+                + '; path=/';
+        }
+        function getCookie(name) {
+            return document.cookie.split('; ').reduce((r, v) => {
+                const [k, val] = v.split('=');
+                return k === name ? decodeURIComponent(val) : r;
+            }, '');
+        }
+        function deleteCookie(name) { setCookie(name, '', -1); }
+
+        document.getElementById('btnSetCookie')
+            .addEventListener('click', () => {
+                setCookie('meuCookie', 'valor123', 1);
+                document.getElementById('cookieOutput').textContent = 'Cookie criado!';
+            });
+        document.getElementById('btnGetCookie')
+            .addEventListener('click', () => {
+                const v = getCookie('meuCookie') || '[vazio]';
+                document.getElementById('cookieOutput').textContent = 'Cookie: ' + v;
+            });
+        document.getElementById('btnDeleteCookie')
+            .addEventListener('click', () => {
+                deleteCookie('meuCookie');
+                document.getElementById('cookieOutput').textContent = 'Cookie apagado';
+            });
+
+        // ===== 2. localStorage =====
+        document.getElementById('btnSaveLS')
+            .addEventListener('click', () => {
+                localStorage.setItem('minhaChave', 'dadosXYZ');
+                document.getElementById('lsOutput').textContent = 'Salvo em localStorage';
+            });
+        document.getElementById('btnGetLS')
+            .addEventListener('click', () => {
+                const v = localStorage.getItem('minhaChave') || '[vazio]';
+                document.getElementById('lsOutput').textContent = 'localStorage: ' + v;
+            });
+        document.getElementById('btnDeleteLS')
+            .addEventListener('click', () => {
+                localStorage.removeItem('minhaChave');
+                document.getElementById('lsOutput').textContent = 'Item removido do localStorage';
+            });
+
+        // ===== 3. Autenticação Simulada =====
+        const loginForm = document.getElementById('loginForm');
+        const logoutBtn = document.getElementById('logoutBtn');
+        const authStatus = document.getElementById('authStatus');
+
+        function isLoggedIn() {
+            return !!localStorage.getItem('token');
+        }
+
+        function updateAuthUI() {
+            if (isLoggedIn()) {
+                loginForm.hidden = true;
+                logoutBtn.hidden = false;
+                authStatus.textContent = 'Logado com token: ' + localStorage.getItem('token');
+            } else {
+                loginForm.hidden = false;
+                logoutBtn.hidden = true;
+                authStatus.textContent = 'Não autenticado';
+            }
+        }
+
+        // Simula login com usuário "admin" / senha "1234"
+        loginForm.addEventListener('submit', e => {
+            e.preventDefault();
+            const user = document.getElementById('username').value;
+            const pass = document.getElementById('password').value;
+            if (user === 'admin' && pass === '1234') {
+                // gera “token” simples com base64
+                const token = btoa(user + ':' + pass);
+                localStorage.setItem('token', token);
+                updateAuthUI();
+            } else {
+                alert('Credenciais inválidas');
+            }
+        });
+
+        logoutBtn.addEventListener('click', () => {
+            localStorage.removeItem('token');
+            updateAuthUI();
+        });
+
+        // Atualiza a tela ao carregar
+        updateAuthUI();
+    </script>
+</body>
+
+</html>
