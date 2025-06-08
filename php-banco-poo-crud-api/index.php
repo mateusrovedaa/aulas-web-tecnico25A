@@ -23,6 +23,11 @@ $id         = isset($partes[1]) && is_numeric($partes[1])
                 ? (int)$partes[1] 
                 : null;
 
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    http_response_code(204);
+    exit;
+}
+
 if ($recurso === 'usuarios') {
     // Método HTTP e ID definem qual ação chamar
     if ($_SERVER['REQUEST_METHOD'] === 'GET') {
